@@ -1,4 +1,4 @@
 Sống;T2-CN 9:30-10:30;T2,T6 5-6
 Học tiếng Anh;T3-T5 7-9;T2 5-6:00
 Học tiếng U;CN-T3 23-23:59;T4 7:10-8
-Prozip;T3 1:20-2:40
+Prozip;T3 12:00-13

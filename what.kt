@@ -153,14 +153,19 @@ fun debugMatchEntry (entry: IMatchEntry): String {
     else "UnknownMatchEntryType"
 }
 
-fun main() {
-    val db = constructTodoDatabaseFromFile(File("data.txt"))
-    val (weekday, time) = Calendar.getInstance().run {
-        val weekday = get(Calendar.DAY_OF_WEEK)
-        val hour = get(Calendar.HOUR_OF_DAY)
-        val minute = get(Calendar.MINUTE)
-        weekday to hour*60+minute
+fun main(args: Array<String>) {
+    if (args.size==1) {
+        val db = constructTodoDatabaseFromFile(File(args[0]))
+        val (weekday, time) = Calendar.getInstance().run {
+            val weekday = get(Calendar.DAY_OF_WEEK)
+            val hour = get(Calendar.HOUR_OF_DAY)
+            val minute = get(Calendar.MINUTE)
+            weekday to hour*60+minute
+        }
+        val todo = whatToDo(db, weekday, time)
+        displayTodo(todo)
     }
-    val todo = whatToDo(db, weekday, time)
-    displayTodo(todo)
+    else {
+        println("Please provide only argument: path to data file")
+    }
 }
